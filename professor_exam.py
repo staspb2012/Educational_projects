@@ -50,7 +50,7 @@ for i in range(0, len(result_class)):
         indexes_feiled.append(i)
 
 # За выше проведенными действиями
-# узнаем был ли последовательным профессор Грубла
+# узнаем был ли последовательным профессор Грубл
 if result_class[max(indexes_feiled)][0] >= min_passed \
         or result_class[min(indexes_feiled)][0] >= min_passed:
     print('Professor Gruble is inconsistent in marking for students')
