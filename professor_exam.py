@@ -1,3 +1,5 @@
+# Consistency in scoring on the exam
+
 # Импорт модуль рандом для генераци нумерации студентов
 import random
 
