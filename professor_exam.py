@@ -25,21 +25,12 @@ while stop != 'stop':
 
     stop = input('Нажмите enter чтобы продолжить ввод,'
                  'чтобы остановить введите stop: ')
+
 print(class_gruble)
 
 # Создаем список по значением словаря для оценки
 # последовательности в оценивании студентов
 result_class = list(class_gruble.values())
-
-# Список данных для студентов, которые сдали экзамен
-res_class_passed = [e for e in result_class if e[1] != 'Failed']
-
-# Список данных для студентов, которые не сдали экзамен
-res_class_failed = [e for e in result_class if e[1] != 'Passed']
-
-# Получаем минимальное значение сдачи экзамена при котором профессор
-# должен быть последовательным в оценивани сдачи экзамена
-min_passed = min([el[0] for el in res_class_passed])
 
 # Получаем индексы значений для негативных результатов экзамена
 # чтобы сравнить их с минимальным значение для сдачи экзамена
@@ -48,6 +39,18 @@ indexes_feiled = []
 for i in range(0, len(result_class)):
     if result_class[i][1] == 'Failed':
         indexes_feiled.append(i)
+
+# Список данных для студентов, которые сдали экзамен,
+# по которому получим минимальное значение сдачи экзамена
+res_class_passed = [e for e in result_class if e[1] != 'Failed']
+
+# Список данных для студентов, которые не сдали экзамен,
+# по которому получиму нижний порог диапазона для сдачи экзамена
+res_class_failed = [e for e in result_class if e[1] != 'Passed']
+
+# Получаем минимальное значение сдачи экзамена при котором профессор
+# должен быть последовательным в оцениваниb сдачи экзамена
+min_passed = min([el[0] for el in res_class_passed])
 
 # За выше проведенными действиями
 # узнаем был ли последовательным профессор Грубл
@@ -59,4 +62,3 @@ else:
           'the range for passing the exam is higher '
           + str(int(max([el[0] for el in res_class_failed])) + 1)
           + ' points to ' + str(min_passed) + ' points')
-
