@@ -1,5 +1,4 @@
 # The speed of operations using the time module
-
 # Use the time module to perform time operations
 import datetime as dt
 
